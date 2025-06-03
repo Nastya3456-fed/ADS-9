@@ -24,7 +24,7 @@ PMTree::PMTree(const std::vector<char>& elements) {
   buildTree(root.get(), elements);
 }
 
-void PMTree::buildTree(Node* parent, 
+void PMTree::buildTree(Node* parent,
 const std::vector<char>& remaining_elements) {
   if (remaining_elements.empty()) {
     return;
