@@ -8,7 +8,6 @@
 #include <vector>
 #include "tree.h"
 
-// Using declarations вместо directives
 using std::cout;
 using std::endl;
 using std::vector;
@@ -32,7 +31,7 @@ void runExperiment() {
   mt19937 gen(rd());
 
   cout << "Running performance experiment..." << endl;
-  cout << setw(5) << "n" << setw(15) << "getAllPerms" 
+  cout << setw(5) << "n" << setw(15) << "getAllPerms"
        << setw(15) << "getPerm1" << setw(15) << "getPerm2" << endl;
 
   for (int n = 1; n <= MAX_N; ++n) {
@@ -59,7 +58,7 @@ void runExperiment() {
       auto perm = getPerm1(tree, num);
     }
     end = high_resolution_clock::now();
-    auto get_perm1_time = duration_cast<microseconds>(end - start).count() / 
+    auto get_perm1_time = duration_cast<microseconds>(end - start).count() /
                          SAMPLES;
 
     // Measure getPerm2()
@@ -68,14 +67,14 @@ void runExperiment() {
       auto perm = getPerm2(tree, num);
     }
     end = high_resolution_clock::now();
-    auto get_perm2_time = duration_cast<microseconds>(end - start).count() / 
+    auto get_perm2_time = duration_cast<microseconds>(end - start).count() /
                          SAMPLES;
 
     // Save results
-    data_file << n << "," << all_perms_time << "," << get_perm1_time 
+    data_file << n << "," << all_perms_time << "," << get_perm1_time
               << "," << get_perm2_time << "\n";
 
-    cout << setw(5) << n << setw(15) << all_perms_time 
+    cout << setw(5) << n << setw(15) << all_perms_time
          << setw(15) << get_perm1_time << setw(15) << get_perm2_time << endl;
   }
 
