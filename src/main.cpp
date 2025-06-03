@@ -5,7 +5,20 @@
 #include <fstream>
 #include <algorithm>
 #include <iomanip>
+#include <vector>
 #include "tree.h"
+
+using std::cout;
+using std::endl;
+using std::vector;
+using std::ofstream;
+using std::setw;
+using std::chrono::high_resolution_clock;
+using std::chrono::microseconds;
+using std::chrono::duration_cast;
+using std::random_device;
+using std::mt19937;
+using std::uniform_int_distribution;
 
 using namespace std;
 using namespace std::chrono;
