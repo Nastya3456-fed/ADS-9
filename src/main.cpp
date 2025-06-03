@@ -22,7 +22,11 @@ void runExperiment() {
   mt19937 gen(rd());
 
   cout << "Running performance experiment..." << endl;
-  cout << setw(5) << "n" << setw(15) << "getAllPerms" << setw(15) << "getPerm1" << setw(15) << "getPerm2" << endl;
+  cout << setw(5) << "n"
+  << setw(15)
+  << "getAllPerms" << setw(15)
+  << "getPerm1" << setw(15)
+  << "getPerm2" << endl;
 
   for (int n = 1; n <= MAX_N; ++n) {
     vector<char> elements(n);
@@ -48,7 +52,8 @@ void runExperiment() {
     auto perm = getPerm1(tree, num);
   }
   end = high_resolution_clock::now();
-  auto get_perm1_time = duration_cast<microseconds>(end - start).count() / SAMPLES;
+  auto get_perm1_time = duration_cast
+  <microseconds>(end - start).count() / SAMPLES;
 
   // Измеряем время для getPerm2()
   start = high_resolution_clock::now();
@@ -56,13 +61,20 @@ void runExperiment() {
     auto perm = getPerm2(tree, num);
   }
   end = high_resolution_clock::now();
-  auto get_perm2_time = duration_cast<microseconds>(end - start).count() / SAMPLES;
+  auto get_perm2_time = duration_cast
+  <microseconds>(end - start).count() / SAMPLES;
 
   // Записываем результаты
-  data_file << n << "," << all_perms_time << "," << get_perm1_time << "," << get_perm2_time << "\n";
+  data_file << n << ","
+  << all_perms_time << ","
+  << get_perm1_time << ","
+  << get_perm2_time << "\n";
 
   // Выводим в консоль
-  cout << setw(5) << n << setw(15) << all_perms_time << setw(15) << get_perm1_time << setw(15) << get_perm2_time << endl;
+  cout << setw(5) << n << setw(15)
+  << all_perms_time << setw(15)
+  << get_perm1_time << setw(15)
+  << get_perm2_time << endl;
 }
 
   data_file.close();
