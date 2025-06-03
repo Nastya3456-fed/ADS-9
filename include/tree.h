@@ -11,19 +11,19 @@ class PMTree {
     char value;
     std::vector<std::unique_ptr<Node>> children;
 
-    Node(char val) : value(val) {}
+    explicit Node(char val) : value(val) {}
   };
-  PMTree(const std::vector<char>& elements);
+  explicit PMTree(const std::vector<char>& elements);
   ~PMTree() = default;
 
   const Node* getRoot() const { return root.get(); }
   size_t getTotalPermutations() const { return total_permutations; }
 
  private:
-   std::unique_ptr<Node> root;
-   size_t total_permutations;
+  std::unique_ptr<Node> root;
+  size_t total_permutations;
 
-   void buildTree(Node* parent, const std::vector<char>& remaining_elements);
+  void buildTree(Node* parent, const std::vector<char>& remaining_elements);
 };
 
 std::vector<std::vector<char>> getAllPerms(const PMTree& tree);
