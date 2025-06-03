@@ -36,7 +36,9 @@ void PMTree::buildTree(Node* parent, const std::vector<char>& remaining_elements
   }
 }
 
-void traverseTree(const PMTree::Node* node, std::vector<char>& current, std::vector<std::vector<char>>& result) {
+void traverseTree(const PMTree::Node* node, 
+std::vector<char>& current, 
+std::vector<std::vector<char>>& result) {
   if (node->value != '\0') {
     current.push_back(node->value);
   }
