@@ -77,8 +77,6 @@ void runExperiment() {
     data_file.close();
     cout << "Experiment completed. Results saved to results.csv" << endl;
 
-    // Генерируем график
-    system("python3 plot_results.py");
 }
 
 void printPermutations(const vector<char>& elements) {
