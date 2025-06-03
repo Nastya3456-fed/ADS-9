@@ -6,6 +6,8 @@
 #include  <fstream>
 #include  <locale>
 #include  <cstdlib>
+#include <memory>
+#include <vector>
 #include  "tree.h"
 
 PMTree::PMTree(const std::vector<char>& elements) {
@@ -14,7 +16,6 @@ PMTree::PMTree(const std::vector<char>& elements) {
     total_permutations = 0;
     return;
   }
-  
   root = std::make_unique<Node>('\0');
   total_permutations = 1;
   for (size_t i = elements.size(); i > 0; --i) {
@@ -44,8 +45,7 @@ void traverseTree(const PMTree::Node* node, std::vector<char>& current, std::vec
     if (!current.empty()) {
       result.push_back(current);
     }
-  }
-  else {
+  } else {
     for (const auto& child : node->children) {
       traverseTree(child.get(), current, result);
     }
@@ -110,7 +110,6 @@ std::vector<char> getPerm2(const PMTree& tree, int num) {
       int fact = factorials[n - 1];
       int idx = num / fact;
       num %= fact;
-      
      for (int i = n - 1; i >= 0; --i) {
        if (static_cast<int>(i) != idx) {
          stack.push(current->children[i].get());
