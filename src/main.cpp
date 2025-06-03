@@ -1,11 +1,11 @@
 // Copyright 2022 NNTU-CS
-#include "tree.h"
 #include <iostream>
 #include <chrono>
 #include <random>
 #include <fstream>
 #include <algorithm>
 #include <iomanip>
+#include "tree.h"
 
 using namespace std;
 using namespace std::chrono;
