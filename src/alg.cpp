@@ -24,20 +24,22 @@ PMTree::PMTree(const std::vector<char>& elements) {
   buildTree(root.get(), elements);
 }
 
-void PMTree::buildTree(Node* parent, const std::vector<char>& remaining_elements) {
+void PMTree::buildTree(Node* parent, 
+const std::vector<char>& remaining_elements) {
   if (remaining_elements.empty()) {
     return;
   }
   for (size_t i = 0; i < remaining_elements.size(); ++i) {
-    parent->children.emplace_back(std::make_unique<Node>(remaining_elements[i]));
+    parent->children.emplace_back(
+    std::make_unique<Node>(remaining_elements[i]));
     std::vector<char> new_remaining = remaining_elements;
     new_remaining.erase(new_remaining.begin() + i);
     buildTree(parent->children.back().get(), new_remaining);
   }
 }
 
-void traverseTree(const PMTree::Node* node, 
-std::vector<char>& current, 
+void traverseTree(const PMTree::Node* node,
+std::vector<char>& current,
 std::vector<std::vector<char>>& result) {
   if (node->value != '\0') {
     current.push_back(node->value);
@@ -76,7 +78,8 @@ std::vector<char> getPerm1(const PMTree& tree, int num) {
 }
 
 std::vector<char> getPerm2(const PMTree& tree, int num) {
-  if (num < 1 || static_cast<size_t>(num) > tree.getTotalPermutations() || !tree.getRoot()) {
+  if (num < 1 || static_cast<size_t>(num) > tree.getTotalPermutations()
+  || !tree.getRoot()) {
     return {};
   }
 
